@@ -10,6 +10,7 @@ const { getAllUsers,
     removeFromWishlist,
     updateUserEmail,
     updateUserMobile,
+    getProductDetails,
     getUserProfileData
 } = require('../controllers/controllers')
 
@@ -30,6 +31,11 @@ router.get("/products/category/:selected_category", getProductsOfCategory)
 //Routes to search products 
 
 router.get("/getSearchedProd/:search_key", getSearchedProducts)
+
+//Routes to get products details
+
+router.get("/getProductDetails/:productID", getProductDetails)
+
 
 //Routes to update wishlist for user
 
