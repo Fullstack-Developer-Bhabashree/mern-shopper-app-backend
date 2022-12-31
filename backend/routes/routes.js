@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const { getAllUsers,
     registerUser,
+    getAllProductsCategory,
     getProductsOfCategory,
     getSearchedProducts,
     updateWishlist,
@@ -18,6 +19,10 @@ router.get("/getusers", getAllUsers)
 
 // Routes to insert new users
 router.post("/registeruser", registerUser)
+
+// Routes to get all products category in the database
+
+router.get("/getAllProductsCategory", getAllProductsCategory)
 
 // Routes to get all products in the database based on category
 router.get("/products/category/:selected_category", getProductsOfCategory)
