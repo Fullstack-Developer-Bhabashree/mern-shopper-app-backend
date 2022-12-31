@@ -212,6 +212,7 @@ const updateUserMobile = async (req, res) => {
 module.exports = {
     getAllUsers,
     registerUser,
+    getAllProductsCategory,
     getProductsOfCategory,
     getSearchedProducts,
     updateWishlist,
