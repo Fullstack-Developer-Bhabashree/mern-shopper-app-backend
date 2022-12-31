@@ -36,6 +36,24 @@ const registerUser = async (req, res) => {
         console.log(e)
     }
 }
+
+//Get all products categories
+
+const getAllProductsCategory = async (req, res) => {
+
+    try {
+        const db = client.db("shopdb");
+        await db.collection("products").aggregate([{ $group: { _id: '$category' } }]).toArray((err, docs) => {
+            if (!err) {
+                console.log(docs)
+                res.send(docs)
+            }
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 //Get all Products based on category
 
 const getProductsOfCategory = async (req, res) => {
