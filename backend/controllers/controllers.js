@@ -72,6 +72,24 @@ const getProductsOfCategory = async (req, res) => {
     }
 }
 
+//Get product details data
+const getProductDetails = async (req, res) => {
+    var productID = parseInt(req.params.productID)
+    
+    try {
+        const db = client.db('shopdb')
+
+        await db.collection('products').find({ id: productID }).toArray((err, documents) => {
+            if (!err) {
+                console.log(documents)
+                res.send(documents)
+            }
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 // Get request for search products
 
 const getSearchedProducts = async (req, res) => {
@@ -220,5 +238,6 @@ module.exports = {
     removeFromWishlist,
     updateUserEmail,
     updateUserMobile,
+    getProductDetails,
     getUserProfileData
 }
